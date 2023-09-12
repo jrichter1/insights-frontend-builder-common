@@ -46,7 +46,7 @@ function teardown_docker() {
 trap "teardown_docker" EXIT SIGINT SIGTERM
 
 # Detect if the container is running
-if docker ps | grep $CONTAINER_NAME > /dev/null; then
+if docker ps -a | grep $CONTAINER_NAME > /dev/null; then
   # Delete it
   # We do this because an aborted run could leave the container around
   teardown_docker
